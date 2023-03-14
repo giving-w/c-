@@ -1,24 +1,28 @@
 #include<iostream>
 using namespace std;
+
+//元素逆置
 int main() {
-
-//对一个影片进行打分：
-	int a;
-	cout << "Please set a number to this movies : ";
-	cin >> a;
-	switch (a) {
-		case 10:
-		case 9:
-			cout << "this movie is prefect" << endl;
-			break;
-		case 8:
-		case 7:
-		case 6:
-			cout << "this movies is good" << endl;
-			break;
-		default:
-			cout << "this movies is usual" << endl;
-			break;
-
+	int arr[5] = { 4,7,1,9,3 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int i, t;
+	
+	//打印没改之前：
+	for (i = 0; i < sz; i++) {
+		cout << arr[i] << " ";
 	}
+	cout << endl;
+
+	//改变：
+	for (i = 0; i < sz / 2; i++) {
+		t = arr[i];
+		arr[i] = arr[sz - 1 - i];
+		arr[sz - 1 - i] = t;	
+	}
+
+	//打印修改之后：
+	for (i = 0; i < sz; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
 }
